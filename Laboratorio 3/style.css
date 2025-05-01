@@ -1,0 +1,77 @@
+/* style.css - diseño tipo tarjeta verde por problema */
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f3fdf4;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  
+  .container {
+    width: 90%;
+    max-width: 800px;
+    padding: 20px;
+  }
+  
+  h1 {
+    text-align: center;
+    color: #14532d;
+    margin-bottom: 40px;
+  }
+  
+  .problem {
+    background-color: #d1fae5; /* verde claro */
+    padding: 20px;
+    margin-bottom: 25px;
+    border-radius: 15px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border: 2px solid #10b981; /* verde más fuerte */
+    transition: transform 0.2s ease;
+  }
+  
+  .problem:hover {
+    transform: scale(1.01);
+  }
+  
+  .problem h3 {
+    margin-top: 0;
+    color: #065f46;
+  }
+  
+  input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0 15px;
+    border-radius: 8px;
+    border: 1px solid #aaa;
+    box-sizing: border-box;
+  }
+  
+  button {
+    padding: 10px 20px;
+    background-color: #059669;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s ease;
+  }
+  
+  button:hover {
+    background-color: #047857;
+  }
+  
+  .resultado {
+    background-color: #ecfdf5;
+    border-left: 4px solid #10b981;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 8px;
+    white-space: pre-wrap;
+  }
+  
