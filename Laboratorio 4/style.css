@@ -1,0 +1,92 @@
+body {
+    background: #f3fdf4;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    padding: 50px;
+  }
+  
+  .container {
+    background: #d1fae5;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+  }
+  
+  h1 {
+    text-align: center;
+    color: #065f46;
+  }
+  
+  input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+  }
+  
+  button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #059669;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #047857;
+  }
+  
+  .tarjeta-verde {
+    margin-top: 30px;
+  }
+  
+  .tarjeta {
+    background: #ffffff;
+    border-left: 5px solid #10b981;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  thead th {
+    background-color: #10b981;
+    color: white;
+    padding: 10px;
+    text-align: left;
+  }
+  
+  td, th {
+    border: 1px solid #ccc;
+    padding: 10px;
+  }
+  
+  .btnEliminar {
+    background-color: #ef4444;
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .btnEliminar:hover {
+    background-color: #dc2626;
+  }
+  
+  .mensaje-error {
+    color: #b91c1c;
+    font-weight: bold;
+  }
+  
