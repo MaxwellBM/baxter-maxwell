@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Perfil de Usuario</title>
+    <link rel="stylesheet" href="perfil.css">
+</head>
+<header id="usuario-header"></header>
+
+<body>
+    <a href="dashboard.html" class="btn-volver">⬅ Volver al Dashboard</a>
+
+    <div class="container">
+        <h2>Perfil del Usuario</h2>
+        <form id="form-perfil">
+            <label for="perfil-username">Usuario (no modificable):</label>
+            <input type="text" id="perfil-username" disabled>
+
+            <label for="perfil-nombre">Nombre:</label>
+            <input type="text" id="perfil-nombre" required>
+
+            <label for="perfil-password">Nueva contraseña:</label>
+            <input type="password" id="perfil-password" placeholder="*******">
+
+            <button type="submit">Guardar cambios</button>
+        </form>
+    </div>
+
+    <script src="storage.js"></script>
+    <script src="perfil.js"></script>
+    <script src="header.js"></script>
+
+</body>
+
+</html>
