@@ -1,1 +1,281 @@
+<!DOCTYPE html>
+<html lang="es">
 
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>E-Commerce Servicios</title>
+    <style>
+        :root {
+            --color-yellow: #f7d32d;
+            --color-pink: #e94595;
+            --color-cyan: #30c3dd;
+            --color-bg: #1a1a1a;
+            --color-white: #ffffff;
+        }
+
+        .navbar {
+            background-color: #111;
+            padding: 1rem 0;
+            text-align: center;
+        }
+
+        .navbar ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .navbar li {
+            display: inline;
+        }
+
+        .navbar a {
+            text-decoration: none;
+            color: var(--color-cyan);
+            font-weight: bold;
+            font-size: 1rem;
+            transition: color 0.3s, border-bottom 0.3s;
+            border-bottom: 2px solid transparent;
+        }
+
+        .navbar a:hover {
+            color: var(--color-yellow);
+            border-bottom: 2px solid var(--color-pink);
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background-color: var(--color-bg);
+            color: var(--color-white);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            text-align: center;
+            padding: 2rem 1rem;
+        }
+
+        header h1 {
+            font-size: 1.8rem;
+        }
+
+        header h1 span {
+            font-weight: bold;
+        }
+
+        .title-pink {
+            color: var(--color-pink);
+        }
+
+        .title-yellow {
+            color: var(--color-yellow);
+        }
+
+        .title-cyan {
+            color: var(--color-cyan);
+        }
+
+        header p {
+            font-size: 1.5rem;
+        }
+
+        .highlight-pink {
+            color: var(--color-pink);
+            font-weight: bold;
+        }
+
+        .highlight-yellow {
+            color: var(--color-yellow);
+            font-weight: bold;
+        }
+
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 1.5rem;
+            padding: 2rem;
+        }
+
+        .service-card {
+            background-color: #2a2a2a;
+            padding: 1rem;
+            text-align: center;
+            border-radius: 8px;
+            transition: transform 0.3s;
+            cursor: pointer;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            background-color: #333;
+        }
+
+        .service-card img {
+            width: 50px;
+            margin-bottom: 0.5rem;
+            filter: invert(1);
+        }
+
+        .detail {
+            display: none;
+            padding: 2rem;
+        }
+
+        .detail.active {
+            display: block;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1.5rem 1rem;
+            background-color: #111;
+        }
+
+        footer ul {
+            list-style: none;
+            padding: 0;
+            margin: 0.5rem 0 0;
+        }
+
+        footer li {
+            margin: 0.2rem 0;
+        }
+
+        .contacto {
+  background-color: #2a2a2a;
+  padding: 2rem;
+  text-align: center;
+  border-top: 2px solid #444;
+}
+
+.contacto h2 {
+  color: var(--color-pink);
+  margin-bottom: 1rem;
+}
+
+.contacto p {
+  margin: 0.5rem 0;
+  color: var(--color-yellow);
+  font-size: 1rem;
+}
+
+.contacto span {
+  color: var(--color-white);
+}
+
+.contacto a {
+  color: var(--color-cyan);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.contacto a:hover {
+  color: var(--color-yellow);
+}
+
+    </style>
+</head>
+
+<body>
+    <nav class="navbar">
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="sobre-nosotros.html">Sobre nosotros</a></li>
+            <li><a href="faq.html">Preguntas frecuentes</a></li>
+            <li><a href="confirmacion.html">Confirmación</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <h1><span class="title-pink">E-COMMERCE</span> <span class="title-yellow">TIENDA DE</span> <span
+                class="title-cyan">SERVICIOS</span></h1>
+        <p>¿Buscas <span class="highlight-pink">servicios</span> de <span class="highlight-yellow">calidad</span>?</p>
+    </header>
+
+    <main>
+        <section class="services">
+            <div class="service-card" onclick="showDetail('clases')">
+                <img src="https://img.icons8.com/ios-filled/50/calculator.png" alt="Clases particulares" />
+                <h3>Clases Particulares</h3>
+            </div>
+            <div class="service-card" onclick="showDetail('redaccion')">
+                <img src="https://img.icons8.com/ios-filled/50/edit.png" alt="Redacción" />
+                <h3>Redacción</h3>
+            </div>
+            <div class="service-card" onclick="showDetail('reparacion')">
+                <img src="https://img.icons8.com/ios-filled/50/monitor.png" alt="Reparación de PC" />
+                <h3>Reparación de PC</h3>
+            </div>
+            <div class="service-card" onclick="showDetail('diseno')">
+                <img src="https://img.icons8.com/ios-filled/50/pencil-tip.png" alt="Diseño Gráfico" />
+                <h3>Diseño Gráfico</h3>
+            </div>
+        </section>
+
+        <section class="detail" id="detail">
+            <h2 id="detail-title"></h2>
+            <p id="detail-desc"></p>
+            <button onclick="goBack()">Volver</button>
+        </section>
+    </main>
+
+    <footer>
+        <p>Con nosotros encontrarás los mejores servicios</p>
+        <ul>
+            <li>@Amir</li>
+            <li>@Gabriel</li>
+            <li>@Maxwellr</li>
+        </ul>
+    </footer>
+
+    <section class="contacto" id="contacto">
+        <h2>Contáctanos</h2>
+        <p>📧 Correo: <span>contacto@servicios.com</span></p>
+        <p>📱 WhatsApp: <span>+507 6000-0000</span></p>
+        <p>🌐 Redes: <a href="#" target="_blank">@ecommerce_servicios</a></p>
+    </section>
+
+    <script>
+        const detailInfo = {
+            clases: {
+                title: 'Clases Particulares',
+                desc: 'Aprende desde casa con instructores capacitados en diferentes materias. Ideal para reforzar lo aprendido en clase.'
+            },
+            redaccion: {
+                title: 'Redacción',
+                desc: 'Servicios de redacción profesional para artículos, ensayos, trabajos escolares o contenido web.'
+            },
+            reparacion: {
+                title: 'Reparación de PC',
+                desc: 'Diagnóstico y solución de problemas técnicos. Limpieza, formateo e instalación de software.'
+            },
+            diseno: {
+                title: 'Diseño Gráfico',
+                desc: 'Diseños modernos y creativos para tus proyectos personales o de negocio. Logos, flyers, redes sociales y más.'
+            }
+        };
+
+        function showDetail(service) {
+            document.querySelector('.services').style.display = 'none';
+            const detailSection = document.getElementById('detail');
+            document.getElementById('detail-title').textContent = detailInfo[service].title;
+            document.getElementById('detail-desc').textContent = detailInfo[service].desc;
+            detailSection.classList.add('active');
+        }
+
+        function goBack() {
+            document.querySelector('.services').style.display = 'grid';
+            document.getElementById('detail').classList.remove('active');
+        }
+    </script>
+</body>
+
+</html>

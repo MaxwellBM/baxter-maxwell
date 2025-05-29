@@ -1,0 +1,58 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Forma de Pago</title>
+  <style>
+    body {
+      background-color: #1a1a1a;
+      color: white;
+      font-family: 'Segoe UI', sans-serif;
+      padding: 2rem;
+    }
+    .pago {
+      max-width: 400px;
+      background: #2a2a2a;
+      padding: 2rem;
+      margin: auto;
+      border-radius: 10px;
+    }
+    h2 {
+      color: #f7d32d;
+    }
+    select, input {
+      width: 100%;
+      padding: 0.6rem;
+      margin-top: 1rem;
+      border: none;
+      border-radius: 5px;
+      background: #333;
+      color: white;
+    }
+    button {
+      margin-top: 1.5rem;
+      width: 100%;
+      background-color: #e94595;
+      color: white;
+      padding: 0.7rem;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="pago">
+    <h2>Selecciona Método de Pago</h2>
+    <select>
+      <option>Tarjeta de Crédito</option>
+      <option>Yappy</option>
+      <option>ACH Bancario</option>
+    </select>
+    <input type="text" placeholder="Nombre en la tarjeta" />
+    <input type="text" placeholder="Número de tarjeta" />
+    <button>Pagar Ahora</button>
+  </div>
+</body>
+</html>

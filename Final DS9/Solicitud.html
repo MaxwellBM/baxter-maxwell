@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Formulario de Solicitud</title>
+  <style>
+    :root {
+      --color-bg: #1a1a1a;
+      --color-pink: #e94595;
+      --color-yellow: #f7d32d;
+      --color-cyan: #30c3dd;
+      --color-white: #ffffff;
+      --color-gray: #333;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--color-bg);
+      color: var(--color-white);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 2rem;
+    }
+
+    .form-container {
+      background-color: var(--color-gray);
+      border-radius: 12px;
+      padding: 2.5rem 2rem;
+      width: 100%;
+      max-width: 520px;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+    }
+
+    h2 {
+      text-align: center;
+      color: var(--color-pink);
+      margin-bottom: 1.5rem;
+    }
+
+    label {
+      display: block;
+      margin: 0.5rem 0 0.2rem;
+      font-weight: bold;
+      color: var(--color-yellow);
+    }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 0.7rem;
+      border-radius: 8px;
+      border: none;
+      margin-bottom: 1rem;
+      background-color: #2a2a2a;
+      color: var(--color-white);
+      font-size: 1rem;
+    }
+
+    input[type="file"] {
+      padding: 0.4rem;
+    }
+
+    input:focus, textarea:focus, select:focus {
+      outline: 2px solid var(--color-cyan);
+    }
+
+    .buttons {
+      text-align: center;
+      margin-top: 1.5rem;
+    }
+
+    button {
+      padding: 0.7rem 1.2rem;
+      margin: 0.5rem;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .btn-enviar {
+      background-color: var(--color-pink);
+      color: var(--color-white);
+    }
+
+    .btn-enviar:hover {
+      background-color: #d73683;
+    }
+
+    .btn-cancelar {
+      background-color: transparent;
+      border: 2px solid var(--color-cyan);
+      color: var(--color-cyan);
+    }
+
+    .btn-cancelar:hover {
+      background-color: var(--color-cyan);
+      color: var(--color-bg);
+    }
+  </style>
+</head>
+<body>
+  <div class="form-container">
+    <h2>Formulario de Solicitud</h2>
+    <form onsubmit="submitForm(event)">
+      <label for="servicio">Selecciona el servicio</label>
+      <select id="servicio" name="servicio" required>
+        <option value="">-- Selecciona uno --</option>
+        <option value="clases">Clases Particulares</option>
+        <option value="redaccion">Redacción</option>
+        <option value="reparacion">Reparación de PC</option>
+        <option value="diseno">Diseño Gráfico</option>
+      </select>
+
+      <label for="nombre">Tu nombre</label>
+      <input type="text" id="nombre" name="nombre" required />
+
+      <label for="contacto">Correo electrónico o celular</label>
+      <input type="text" id="contacto" name="contacto" placeholder="ejemplo@gmail.com / 6123-4567" required />
+
+      <label for="fecha">Fecha deseada</label>
+      <input type="date" id="fecha" name="fecha" required />
+
+      <label for="comentario">Comentarios</label>
+      <textarea id="comentario" name="comentario" rows="4" placeholder="Agrega una idea, necesidad o instrucción..."></textarea>
+
+      <label for="archivo">Adjuntar archivo o imagen (opcional)</label>
+      <input type="file" id="archivo" name="archivo" accept=".jpg,.png,.pdf,.docx" />
+
+      <div class="buttons">
+        <button type="submit" class="btn-enviar">Enviar solicitud</button>
+        <button type="button" class="btn-cancelar" onclick="goBack()">Cancelar</button>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    function submitForm(event) {
+      event.preventDefault();
+      alert("✅ ¡Tu solicitud fue enviada correctamente!");
+    }
+
+    function goBack() {
+      alert("🔙 Cancelado. Volviendo al catálogo.");
+    }
+  </script>
+</body>
+</html>
