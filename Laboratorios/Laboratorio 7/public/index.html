@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Productos</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-box-open"></i>
+                    <h1>Gestión de Productos</h1>
+                </div>
+                <div class="header-actions">
+                    <button id="btnNuevoProducto" class="btn btn-primary">
+                        <i class="fas fa-plus"></i>
+                        Nuevo Producto
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <section class="stats-section">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-boxes"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3 id="totalProductos">0</h3>
+                            <p>Total Productos</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon warning">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3 id="stockBajo">0</h3>
+                            <p>Stock Bajo</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon success">
+                            <i class="fas fa-tags"></i>
+                        </div>
+                        <div class="stat-content">
+                            <h3 id="categorias">0</h3>
+                            <p>Categorías</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="search-section">
+                <div class="search-container">
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="searchInput" placeholder="Buscar productos...">
+                        <button id="btnLimpiarBusqueda" class="btn-clear" style="display: none;">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                    <div class="filter-actions">
+                        <select id="categoriaFilter" class="filter-select">
+                            <option value="">Todas las categorías</option>
+                            <option value="Electrónicos">Electrónicos</option>
+                            <option value="Accesorios">Accesorios</option>
+                            <option value="Ropa">Ropa</option>
+                            <option value="Hogar">Hogar</option>
+                            <option value="Deportes">Deportes</option>
+                            <option value="Otros">Otros</option>
+                        </select>
+                        <button id="btnStockBajo" class="btn btn-secondary">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            Stock Bajo
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="products-section">
+                <div class="section-header">
+                    <h2>Productos</h2>
+                    <div class="view-options">
+                        <button id="btnGridView" class="view-btn active">
+                            <i class="fas fa-th"></i>
+                        </button>
+                        <button id="btnListView" class="view-btn">
+                            <i class="fas fa-list"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div id="loadingSpinner" class="loading-spinner" style="display: none;">
+                    <div class="spinner"></div>
+                    <p>Cargando productos...</p>
+                </div>
+
+                <div id="productosGrid" class="productos-grid">
+                </div>
+
+                <div id="noProducts" class="no-products" style="display: none;">
+                    <i class="fas fa-box-open"></i>
+                    <h3>No hay productos</h3>
+                    <p>No se encontraron productos que coincidan con tu búsqueda.</p>
+                    <button id="btnCrearPrimerProducto" class="btn btn-primary">
+                        <i class="fas fa-plus"></i>
+                        Crear primer producto
+                    </button>
+                </div>
+            </section>
+        </main>
+
+        <div id="modalFormulario" class="modal" style="display: none;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 id="modalTitulo">Nuevo Producto</h3>
+                    <button id="btnCerrarModal" class="btn-close">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <form id="productoForm" class="producto-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="nombre">Nombre del Producto *</label>
+                            <input type="text" id="nombre" name="nombre" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="categoria">Categoría *</label>
+                            <select id="categoria" name="categoria" required>
+                                <option value="">Seleccionar categoría</option>
+                                <option value="Electrónicos">Electrónicos</option>
+                                <option value="Accesorios">Accesorios</option>
+                                <option value="Ropa">Ropa</option>
+                                <option value="Hogar">Hogar</option>
+                                <option value="Deportes">Deportes</option>
+                                <option value="Otros">Otros</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="descripcion">Descripción *</label>
+                        <textarea id="descripcion" name="descripcion" rows="3" required></textarea>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="precio">Precio *</label>
+                            <div class="input-with-icon">
+                                <i class="fas fa-dollar-sign"></i>
+                                <input type="number" id="precio" name="precio" step="0.01" min="0" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="stock">Stock *</label>
+                            <div class="input-with-icon">
+                                <i class="fas fa-boxes"></i>
+                                <input type="number" id="stock" name="stock" min="0" required>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-save"></i>
+                            <span id="btnSubmitText">Guardar</span>
+                        </button>
+                        <button type="button" id="btnCancelar" class="btn btn-secondary">
+                            <i class="fas fa-times"></i>
+                            Cancelar
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div id="modalDetalle" class="modal" style="display: none;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 id="modalDetalleTitulo">Detalle del Producto</h3>
+                    <button id="btnCerrarDetalle" class="btn-close">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div id="modalDetalleBody" class="modal-body">
+                </div>
+                <div class="modal-actions">
+                    <button id="btnEditarProducto" class="btn btn-primary">
+                        <i class="fas fa-edit"></i>
+                        Editar
+                    </button>
+                    <button id="btnEliminarProducto" class="btn btn-danger">
+                        <i class="fas fa-trash"></i>
+                        Eliminar
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="modalConfirmacion" class="modal" style="display: none;">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Confirmar Acción</h3>
+                    <button id="btnCerrarConfirmacion" class="btn-close">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="confirmation-content">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <h4 id="confirmacionTitulo">¿Estás seguro?</h4>
+                        <p id="confirmacionMensaje">Esta acción no se puede deshacer.</p>
+                    </div>
+                </div>
+                <div class="modal-actions">
+                    <button id="btnConfirmar" class="btn btn-danger">
+                        <i class="fas fa-check"></i>
+                        Confirmar
+                    </button>
+                    <button id="btnCancelarConfirmacion" class="btn btn-secondary">
+                        <i class="fas fa-times"></i>
+                        Cancelar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="toastContainer" class="toast-container"></div>
+
+    <script src="app.js"></script>
+</body>
+</html> 
