@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Producto = require('../src/models/Producto');
 
-// Datos cargados para ejemplo en la base
+// Datos para ejemplo en la base
 const productosEjemplo = [
     {
         nombre: 'Laptop HP Pavilion',

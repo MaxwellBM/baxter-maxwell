@@ -6,21 +6,9 @@
 ### Backend (API REST)
 - **Fastify** como framework web
 - **MongoDB** con Mongoose como base de datos
-- **Arquitectura modular** con separación de responsabilidades
-- **Validación de datos** con esquemas JSON
-- **Manejo de errores** centralizado
-- **CORS** habilitado para desarrollo
-- **Logging** estructurado
-- **Health check** endpoint
+- **Arquitectura modular** 
 
-### Frontend
-- **Interfaz moderna** y responsive
-- **Dashboard** con estadísticas en tiempo real
-- **Búsqueda** y filtros avanzados
-- **CRUD completo** de productos
-- **Notificaciones** toast
-- **Modales** para formularios y detalles
-- **Diseño mobile-first**
+
 
 ## Funcionalidades
 
@@ -63,10 +51,6 @@
 - `pnpm dev` - Iniciar servidor en modo desarrollo con nodemon
 - `pnpm seed` - Poblar la base de datos con datos de ejemplo
 
-### Acceso
-- Frontend: http://localhost:3000
-- API: http://localhost:3000/api
-- Health Check: http://localhost:3000/health
 
 
 
