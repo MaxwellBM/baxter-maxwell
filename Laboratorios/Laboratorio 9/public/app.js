@@ -522,7 +522,7 @@ const ui = {
             }
 
             // Inicializar Stripe con la clave pública
-            stripe = Stripe('pk_test_51RkW5d4DxAf69OZnUTRSxitCvYGGbzN8lMlvEsMcd0J2sMVb6DB66dkCtyC3stUlmm4PSvJBVjk7kmHlTkwzr7eF00xriRNhmi');
+            stripe = Stripe('');
             
             // Crear el elemento de tarjeta
             const elements = stripe.elements();
