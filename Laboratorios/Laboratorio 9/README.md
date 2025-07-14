@@ -2,7 +2,7 @@
 
 Este proyecto es una aplicación web completa que incluye una API REST construida con Fastify, un frontend moderno y la integración con Stripe para procesamiento de pagos.
 
-## 🚀 Características
+##  Características
 
 ### Backend (Fastify + MongoDB)
 - **API REST completa** para gestión de productos
@@ -10,8 +10,8 @@ Este proyecto es una aplicación web completa que incluye una API REST construid
 - **Sistema de órdenes** para manejar compras
 - **Integración con Stripe** para procesamiento de pagos
 - **Validación de datos** con esquemas JSON
-- **Manejo de errores** robusto
-- **CORS habilitado** para desarrollo
+- **Manejo de errores**
+- **CORS habilitado** 
 
 ### Frontend (HTML + CSS + JavaScript)
 - **Interfaz moderna y responsiva** con diseño atractivo
@@ -105,12 +105,8 @@ Este proyecto es una aplicación web completa que incluye una API REST construid
 - Copiar las claves de prueba (test keys)
 - Actualizar el archivo `.env`
 
-### 3. Configurar webhooks (opcional)
-- En el Dashboard de Stripe, ir a Webhooks
-- Agregar endpoint: `https://tu-dominio.com/api/webhook/stripe`
-- Seleccionar eventos: `payment_intent.succeeded`
 
-## 📚 API Endpoints
+##  API Endpoints
 
 ### Productos
 ```
@@ -139,39 +135,6 @@ GET    /api/ordenes/estadisticas   - Estadísticas de órdenes
 POST   /api/webhook/stripe         - Webhook de Stripe
 ```
 
-## 🎯 Funcionalidades Principales
-
-### Gestión de Productos
-- ✅ Crear, leer, actualizar y eliminar productos
-- ✅ Búsqueda por nombre, descripción o categoría
-- ✅ Filtrado por categoría y stock bajo
-- ✅ Vista en grid y lista
-- ✅ Validación de datos en tiempo real
-
-### Sistema de Compras
-- ✅ Agregar productos al carrito
-- ✅ Validación de stock disponible
-- ✅ Checkout con información del cliente
-- ✅ Procesamiento de pagos con Stripe
-- ✅ Actualización automática del inventario
-- ✅ Gestión de órdenes completa
-
-### Interfaz de Usuario
-- ✅ Diseño moderno y responsivo
-- ✅ Animaciones y transiciones suaves
-- ✅ Notificaciones toast informativas
-- ✅ Modales para formularios y confirmaciones
-- ✅ Indicadores de carga y estados
-
-## 🔒 Seguridad
-
-- **Validación de datos** en frontend y backend
-- **Sanitización de inputs** para prevenir inyecciones
-- **Manejo seguro de pagos** con Stripe
-- **Validación de stock** antes de procesar compras
-- **CORS configurado** para desarrollo seguro
-
-## 🚀 Despliegue
 
 ### Variables de Entorno de Producción
 ```env
@@ -226,28 +189,6 @@ CVC: Cualquier número de 3 dígitos
 Código postal: Cualquier código postal
 ```
 
-## 🤝 Contribución
-
-1. Fork el proyecto
-2. Crear una rama para tu feature (`git checkout -b feature/AmazingFeature`)
-3. Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
-4. Push a la rama (`git push origin feature/AmazingFeature`)
-5. Abrir un Pull Request
-
-## 📄 Licencia
-
-Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más detalles.
-
-## 🆘 Soporte
-
-Si tienes problemas o preguntas:
-
-1. Revisar la documentación de [Fastify](https://www.fastify.io/)
-2. Consultar la [documentación de Stripe](https://stripe.com/docs)
-3. Verificar la configuración de MongoDB
-4. Revisar las variables de entorno
-
----
 
 **Desarrollado con ❤️ para el Laboratorio 9**
 
